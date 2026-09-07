@@ -200,13 +200,8 @@ const translations = {
   "ui.message.duration.minutesSeconds": { zh: "{{minutes}} 分钟 {{seconds}} 秒", zht: "{{minutes}}分 {{seconds}}秒" },
 } satisfies Partial<Record<Keys, Record<ChineseLocale, string>>>
 
-export function chineseDict(locale: ChineseLocale): Partial<Record<Keys, string>> {
+export function chineseDict(locale: ChineseLocale): Record<string, string> {
   return Object.fromEntries(
-    Object.entries(translations).map(([key, value]) => [
-      key,
-      value[locale],
-    ]),
-  ) as Partial<Record<Keys, string>>
+    Object.entries(translations).map(([key, value]) => [key, value[locale]] as const),
+  )
 }
-
-export default translations
