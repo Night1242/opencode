@@ -17,7 +17,7 @@ describe("Chinese translations", () => {
     ["zh", zh, "ui.message.copy", "复制"],
     ["zht", zht, "ui.message.copy", "複製"],
   ] as const)(
-    "%s translates %s correctly",
+    "%s translated correctly",
     (_locale, dict, key, expected) => {
       expect(dict[key]).toBe(expected)
     },
